@@ -121,6 +121,35 @@ class Linkedlist {
     return this
   }
 
+  // Check Palindrome in linkedlist
+  checkPalindromeInLinkedlist(){
+    let firstList=this.head
+    let secondList=JSON.parse(JSON.stringify(this.head))
+
+    let firstNode=firstList
+    let secondNode=firstNode.next
+    while(secondNode){
+      let dummyNode=secondNode.next
+      secondNode.next=firstNode
+      firstNode=secondNode
+      secondNode=dummyNode
+    }
+    firstList.next=null
+    firstList=firstNode
+    let flag=true
+    while(firstList&&secondList){
+      if(firstList.value!==secondList.value){
+          flag=false
+          break;
+      }else{
+        firstList=firstList.next
+        secondList=secondList.next
+      }
+    }
+    console.log(flag)
+  }
+
+
   printHead() {
     console.log(this.head);
   }
@@ -135,17 +164,18 @@ class Linkedlist {
 }
 const newLinkedList = new Linkedlist(5);
 newLinkedList.append(12);
-newLinkedList.append(13);
-newLinkedList.append(13);
 newLinkedList.append(14);
-newLinkedList.append(15);
-newLinkedList.prepend(0);
-newLinkedList.insert(5, 16);
-//newLinkedList.insert(100,16)
-newLinkedList.insert(3, 17);
-newLinkedList.insert(6, 18);
-newLinkedList.deleteNode(6);
-newLinkedList.deleteNode(3);
-newLinkedList.DeleteDuplicateInSorted() //13 value node get deleted
-newLinkedList.reverseLinkedList()
-newLinkedList.printArrayFormate();
+newLinkedList.append(13);
+newLinkedList.append(12);
+newLinkedList.append(5);
+// newLinkedList.prepend(0);
+// newLinkedList.insert(5, 16);
+// //newLinkedList.insert(100,16)
+// newLinkedList.insert(3, 17);
+// newLinkedList.insert(6, 18);
+// newLinkedList.deleteNode(6);
+// newLinkedList.deleteNode(3);
+// newLinkedList.DeleteDuplicateInSorted() //13 value node get deleted
+// newLinkedList.reverseLinkedList()
+newLinkedList.checkPalindromeInLinkedlist()
+// newLinkedList.printArrayFormate();
