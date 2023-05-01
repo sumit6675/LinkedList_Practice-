@@ -86,6 +86,22 @@ class Linkedlist {
     console.log(array.join("-->"));
   }
 
+  /*You are given the pointer to the head node of a sorted linked list,
+  where the data in the nodes is in ascending order.
+  Delete nodes and return a sorted list with each distinct value in the original list. 
+  The given head pointer may be null indicating that the list is empty.*/
+
+  DeleteDuplicateInSorted(){
+    let currentNode=this.head
+    while(currentNode!==null && currentNode.next!==null){
+      if(currentNode.value===currentNode.next.value){
+        currentNode.next=currentNode.next.next
+      }else{
+        currentNode=currentNode.next
+      }
+    }
+  }
+
   printHead() {
     console.log(this.head);
   }
@@ -101,6 +117,7 @@ class Linkedlist {
 const newLinkedList = new Linkedlist(5);
 newLinkedList.append(12);
 newLinkedList.append(13);
+newLinkedList.append(13);
 newLinkedList.append(14);
 newLinkedList.append(15);
 newLinkedList.prepend(0);
@@ -110,4 +127,5 @@ newLinkedList.insert(3, 17);
 newLinkedList.insert(6, 18);
 newLinkedList.deleteNode(6);
 newLinkedList.deleteNode(3);
+newLinkedList.DeleteDuplicateInSorted() //13 value node get deleted
 newLinkedList.printArrayFormate();
