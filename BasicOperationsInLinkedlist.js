@@ -123,7 +123,7 @@ class Linkedlist {
 
   // Check Palindrome in linkedlist
   checkPalindromeInLinkedlist(){
-    let firstList=this.head
+    let firstList=JSON.parse(JSON.stringify(this.head))
     let secondList=JSON.parse(JSON.stringify(this.head))
 
     let firstNode=firstList
@@ -146,7 +146,21 @@ class Linkedlist {
         secondList=secondList.next
       }
     }
-    console.log(flag)
+    console.log(!flag?"Linkedlist is Not Palindrome":"Linkedlist is Palindrome")
+    return this
+  }
+
+  //Find The Middle Node In Linkedlist
+
+  middleNode(){
+    let slow=this.head
+    let fast=this.head
+    while(fast&&fast.next){
+      slow=slow.next
+      fast=fast.next.next
+    }
+    console.log(slow.value)
+    return this
   }
 
 
@@ -168,14 +182,16 @@ newLinkedList.append(14);
 newLinkedList.append(13);
 newLinkedList.append(12);
 newLinkedList.append(5);
-// newLinkedList.prepend(0);
-// newLinkedList.insert(5, 16);
-// //newLinkedList.insert(100,16)
-// newLinkedList.insert(3, 17);
-// newLinkedList.insert(6, 18);
-// newLinkedList.deleteNode(6);
-// newLinkedList.deleteNode(3);
-// newLinkedList.DeleteDuplicateInSorted() //13 value node get deleted
-// newLinkedList.reverseLinkedList()
+newLinkedList.append(4);
+newLinkedList.prepend(0);
+newLinkedList.insert(5, 16);
+newLinkedList.insert(100,16)
+newLinkedList.insert(3, 17);
+newLinkedList.insert(6, 18);
+newLinkedList.deleteNode(6);
+newLinkedList.deleteNode(3);
+newLinkedList.DeleteDuplicateInSorted() //13 value node get deleted
+newLinkedList.reverseLinkedList()
 newLinkedList.checkPalindromeInLinkedlist()
-// newLinkedList.printArrayFormate();
+newLinkedList.middleNode()
+newLinkedList.printArrayFormate();
