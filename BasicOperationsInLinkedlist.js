@@ -176,22 +176,22 @@ class Linkedlist {
     console.log(this.length);
   }
 }
-const newLinkedList = new Linkedlist(5);
-newLinkedList.append(12);
+const newLinkedList = new Linkedlist(5); //5
+newLinkedList.append(12); //5-->12
 newLinkedList.append(14);
 newLinkedList.append(13);
 newLinkedList.append(12);
 newLinkedList.append(5);
-newLinkedList.append(4);
-newLinkedList.prepend(0);
-newLinkedList.insert(5, 16);
-newLinkedList.insert(100,16)
-newLinkedList.insert(3, 17);
-newLinkedList.insert(6, 18);
-newLinkedList.deleteNode(6);
-newLinkedList.deleteNode(3);
+newLinkedList.append(4); //5-->12-->14-->13-->12-->5-->4
+newLinkedList.prepend(0); //0-->5-->12-->14-->13-->12-->5-->4
+newLinkedList.insert(5, 16); //0-->5-->12-->14-->13-->16-->12-->5-->4
+newLinkedList.insert(100,16) //Error inserting
+newLinkedList.insert(3, 17); //0-->5-->12-->17-->14-->13-->16-->12-->5-->4
+newLinkedList.insert(6, 18); //0-->5-->12-->17-->14-->13-->18-->16-->12-->5-->4
+newLinkedList.deleteNode(6); //0-->5-->12-->17-->14-->13-->16-->12-->5-->4
+newLinkedList.deleteNode(3); //0-->5-->12-->14-->13-->16-->12-->5-->4
 newLinkedList.DeleteDuplicateInSorted() //13 value node get deleted
-newLinkedList.reverseLinkedList()
-newLinkedList.checkPalindromeInLinkedlist()
-newLinkedList.middleNode()
+newLinkedList.reverseLinkedList() //4-->5-->12-->16-->13-->14-->12-->5-->0
+newLinkedList.checkPalindromeInLinkedlist() //Linkedlist is Not Palindrome
+newLinkedList.middleNode() //13
 newLinkedList.printArrayFormate();
