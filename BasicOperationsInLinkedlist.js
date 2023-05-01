@@ -102,6 +102,25 @@ class Linkedlist {
     }
   }
 
+  /*Given the pointer to the head node of a linked list, 
+  change the next pointers of the nodes so that their order is reversed. 
+  The head pointer given may be null meaning that the initial list is empty.*/
+
+  reverseLinkedList(){
+    let firstNode=this.head
+    this.tail=this.head
+    let secondNode=firstNode.next
+    while(secondNode){
+      let dummyNode=secondNode.next
+      secondNode.next=firstNode
+      firstNode=secondNode
+      secondNode=dummyNode
+    }
+    this.head.next=null
+    this.head=firstNode
+    return this
+  }
+
   printHead() {
     console.log(this.head);
   }
@@ -128,4 +147,5 @@ newLinkedList.insert(6, 18);
 newLinkedList.deleteNode(6);
 newLinkedList.deleteNode(3);
 newLinkedList.DeleteDuplicateInSorted() //13 value node get deleted
+newLinkedList.reverseLinkedList()
 newLinkedList.printArrayFormate();
