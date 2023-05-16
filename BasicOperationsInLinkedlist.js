@@ -107,12 +107,12 @@ class Linkedlist {
   The head pointer given may be null meaning that the initial list is empty.*/
 
   reverseLinkedList(){
-    let firstNode=this.head
+    let firstNode=this.head // first node
     this.tail=this.head
-    let secondNode=firstNode.next
+    let secondNode=firstNode.next //second node
     while(secondNode){
-      let dummyNode=secondNode.next
-      secondNode.next=firstNode
+      let dummyNode=secondNode.next //third node
+      secondNode.next=firstNode  
       firstNode=secondNode
       secondNode=dummyNode
     }
